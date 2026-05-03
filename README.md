@@ -1,6 +1,5 @@
 # Blog ( web app ) 
-### Appwrite Setup Completed
-- Authentication Services
-- Database Services
-- Storage Services
+### Redux Store Setup Completed
+- Authentication check
+- Data can upadte and reuse
 
