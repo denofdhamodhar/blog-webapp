@@ -19,8 +19,14 @@ export class authServices {
         password: password,
         name: name,
       });
-      console.log(result);
-      return result
+      if (result) {
+        const loginResult = await this.loginAccount({
+          email: email,
+          password : password
+        })
+        console.log(loginResult)
+        return loginResult
+      }
     } catch (error) {
       console.log("Appwrite :: Create Account Error ::", error.message);
     }
