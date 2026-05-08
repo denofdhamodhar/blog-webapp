@@ -19,8 +19,14 @@ export class authServices {
         password: password,
         name: name,
       });
-      console.log(result);
-      return result
+      if (result) {
+        const result = await this.loginAccount({
+          email: email,
+          password: password,
+        });
+        console.log(result);
+        return result;
+      }
     } catch (error) {
       console.log("Appwrite :: Create Account Error ::", error.message);
     }
@@ -33,7 +39,7 @@ export class authServices {
         password: password,
       });
       console.log(result);
-      return result
+      return result;
     } catch (error) {
       console.log("Appwrite :: Login Account Error ::", error.message);
     }
@@ -43,7 +49,7 @@ export class authServices {
     try {
       const result = await this.account.get();
       console.log(result);
-      return result
+      return result;
     } catch (error) {
       console.log("Appwrite :: Get User Error ::", error.message);
     }
