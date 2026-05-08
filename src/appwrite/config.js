@@ -114,8 +114,8 @@ export class services {
         bucketId: conf.BUCKET_ID,
         fileId: fileId,
       });
-
       console.log(result);
+      return result.href
     } catch (error) {
       console.log("Appwrite :: getFile Error ::", error.message);
     }
