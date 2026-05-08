@@ -111,7 +111,7 @@ function PostForm({ post }) {
             options={["active", "Inactive"]}
             {...register("status", {required : true})}
           />
-          <Button label={ post ? "Update" : "Create"} className="my-2 lg:mt-4" bgColor={post ? "bg-slate-800" : "bg-green-500"} />
+          <Button type="submit" label={ post ? "Update" : "Create"} className="my-2 lg:mt-4" bgColor={post ? "bg-slate-800" : "bg-green-500"} />
         </div>
       </div>
       </form>
