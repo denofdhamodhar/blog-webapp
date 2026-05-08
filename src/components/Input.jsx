@@ -6,7 +6,7 @@ function Input(
 ) {
   const id = useId();
   return (
-    <div className="my-2">
+    <div className="mb-4">
       {label && (
         <label
           className="mb-2 inline-block font-medium font-paragraph"

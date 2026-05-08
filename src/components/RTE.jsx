@@ -1,7 +1,7 @@
 import { Editor } from "@tinymce/tinymce-react";
 import { useId } from "react";
 import { Controller } from "react-hook-form";
-import { TinyMCE_KEY } from "../conf/conf";
+// import { TinyMCE_KEY } from "../conf/conf";
 
 function RTE({ name, control, label = "content :", defaultValues = "" }) {
   const id = useId();
@@ -18,9 +18,10 @@ function RTE({ name, control, label = "content :", defaultValues = "" }) {
       <Controller
         name={name}
         control={control}
-        render={({ field: { onChange } }) => {
+        //Note: I forgot () => () because it rendering editor components previous () => {}
+        render={({ field: { onChange } }) => (
           <Editor
-            apiKey={TinyMCE_KEY}
+            // apiKey="yed9o4a44t9xrr86lnvqdhfh820avnfrx8gktqypi8fgx8by"
             initialValue={defaultValues}
             onEditorChange={onChange}
             init={{
@@ -53,8 +54,8 @@ function RTE({ name, control, label = "content :", defaultValues = "" }) {
               content_style:
                 "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
             }}
-          />;
-        }}
+          />
+        )}
       />
     </div>
   );
