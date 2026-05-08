@@ -38,7 +38,7 @@ function Login() {
             placeHolder="Enter Password"
             {...register("password", { required: true })}
           />
-          <Button label="Login" bgColor="bg-green-500" type="submit" />
+          <Button className={"w-full"} label="Login" bgColor="bg-green-500" type="submit" />
         </form>
       </div>
     </Container>

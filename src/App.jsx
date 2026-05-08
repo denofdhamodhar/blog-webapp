@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import Signup from "./components/Signup";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         <Header />
       </div>
       <div className="grow flex justify-center items-center">
+        <Signup />
         <Outlet />
       </div>
       <div className="flex-none">
