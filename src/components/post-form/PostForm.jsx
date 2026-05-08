@@ -79,7 +79,7 @@ function PostForm({ post }) {
   return (
     <Container>
       <form onSubmit={handleSubmit(submit)}>
-        <div className="w-full px-4 lg:my-4 max-w-lg lg:max-w-full mx-auto lg:px-6 grid grid-cols-1 lg:grid-cols-7 lg:gap-x-4">
+        <div className="w-full px-4 my-4 lg:my-8 max-w-lg lg:max-w-full mx-auto lg:px-6 grid grid-cols-1 lg:grid-cols-7 lg:gap-x-8">
         <div className="w-full col-span-1 lg:col-span-4">
           <Input
             label={"Title :"}

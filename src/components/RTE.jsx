@@ -15,12 +15,13 @@ function RTE({ name, control, label = "content :", defaultValues = "" }) {
           {label}
         </label>
       )}
-      <Controller
+      <div className="border-2 border-amber-400 rounded-xl">
+        <Controller
         name={name}
         control={control}
         //Note: I forgot () => () because it rendering editor components previous () => {}
         render={({ field: { onChange } }) => (
-          <Editor
+          <Editor 
             // apiKey="yed9o4a44t9xrr86lnvqdhfh820avnfrx8gktqypi8fgx8by"
             initialValue={defaultValues}
             onEditorChange={onChange}
@@ -45,7 +46,7 @@ function RTE({ name, control, label = "content :", defaultValues = "" }) {
                 "preview",
                 "help",
                 "wordcount",
-              ],
+              ],  
               toolbar:
                 "undo redo | blocks | " +
                 "bold italic forecolor | alignleft aligncenter " +
@@ -57,6 +58,7 @@ function RTE({ name, control, label = "content :", defaultValues = "" }) {
           />
         )}
       />
+      </div>
     </div>
   );
 }
