@@ -1,6 +1,10 @@
+import PostForm from "../components/post-form/PostForm"
+
 function AddPost() {
   return (
-    <div>AddPost</div>
+    <>
+      <PostForm />
+    </>
   )
 }
 
