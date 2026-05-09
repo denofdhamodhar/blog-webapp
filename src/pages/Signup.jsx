@@ -1,7 +1,9 @@
-
+import { Signup as SignupComponent } from "../components/index"
 function Signup() {
   return (
-    <div>Signup</div>
+    <>
+      <SignupComponent />
+    </>
   )
 }
 

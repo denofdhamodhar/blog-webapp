@@ -37,17 +37,7 @@ function Header() {
       name: "Add Post",
       slug: "/add-post",
       active: authStatus,
-    },
-    {
-      name: "Login",
-      slug: "/login",
-      active: authStatus,
-    },
-    {
-      name: "Signup",
-      slug: "/signup",
-      active: authStatus,
-    },
+    }
   ];
   return (
     <header className="w-full bg-amber-400 sticky top-0 z-30 overflow-x-hidden">
@@ -104,7 +94,7 @@ function Header() {
       ${open ? "translate-x-0" : "-translate-x-full"}`}
           >
             <nav className="h-20 flex justify-between items-center px-4 md:px-6">
-              <Link to="/">
+              <Link to="/" onClick={() => setOpen(false)}>
                 <img
                   className="w-12 h-12 lg:w-14 lg:h-14"
                   src={Logo}
@@ -134,6 +124,7 @@ function Header() {
                 {navItems.map((item) =>
                   item.active ? (
                     <NavLink
+                      onClick={() => setOpen(false)}
                       className={({ isActive }) =>
                         isActive
                           ? "cursor-pointer underline-offset-8 underline decoration-wavy decoration-white text-lg text-white"

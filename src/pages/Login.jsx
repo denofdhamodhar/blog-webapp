@@ -1,7 +1,9 @@
-
+import { Login as LoginComponent  } from "../components/index"
 function Login() {
   return (
-    <div>Login</div>
+    <>
+      <LoginComponent />
+    </>
   )
 }
 
