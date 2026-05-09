@@ -15,6 +15,7 @@ function PostForm({ post }) {
   const { register, handleSubmit, watch, setValue, getValues, control } =
     useForm({
       defaultValues: {
+        authour : post?.authour || "",
         title: post?.title || "",
         slug: post?.slug || "",
         content: post?.content || "",
@@ -84,6 +85,11 @@ function PostForm({ post }) {
           <Input
             label={"Title :"}
             placeHolder={"Enter the title"}
+            {...register("title", { required: true })}
+          />
+          <Input
+            label={"Author :"}
+            placeHolder={"Enter the authour"}
             {...register("title", { required: true })}
           />
           <Input

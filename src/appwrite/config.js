@@ -12,7 +12,7 @@ export class services {
     this.storage = new Storage(this.client);
   }
 
-  async createPost({ title, slug, content, status, featuredImage, userId }) {
+  async createPost({ title, slug, content, status, featuredImage, userId, authour }) {
     try {
       const result = await this.databases.createDocument({
         databaseId: conf.DATABASE_ID,
@@ -24,6 +24,7 @@ export class services {
           featuredImage: featuredImage,
           status: status,
           userId: userId,
+          authour : authour
         },
       });
       console.log("Post Created Successfully:", result);
