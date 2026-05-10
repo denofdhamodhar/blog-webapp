@@ -1,6 +1,7 @@
 import { Editor } from "@tinymce/tinymce-react";
 import { useId } from "react";
 import { Controller } from "react-hook-form";
+import { TinyMCE_KEY } from "../conf/conf";
 // import { TinyMCE_KEY } from "../conf/conf";
 
 function RTE({ name, control, label = "content :", defaultValues = "", postContent }) {
@@ -22,7 +23,7 @@ function RTE({ name, control, label = "content :", defaultValues = "", postConte
         //Note: I forgot () => () because it rendering editor components previous () => {}
         render={({ field: { onChange } }) => (
           <Editor 
-            apiKey="yed9o4a44t9xrr86lnvqdhfh820avnfrx8gktqypi8fgx8by"
+            apiKey={TinyMCE_KEY}
             initialValue={ postContent ? postContent : defaultValues}
             onEditorChange={onChange}
             init={{

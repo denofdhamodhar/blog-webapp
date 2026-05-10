@@ -62,7 +62,7 @@ function Post() {
             Written by<span className="lowercase "> {post.authour}</span>
           </p>
           <div className="px-2.5 mt-8 font-paragraph leading-8 text-left md:text-justify hyphens-auto">
-            <p>{post.content ? parse(post.content) : ""}</p>
+            <div>{post.content ? parse(post.content) : ""}</div>
           </div>
           {isAuthour && (
             <div className="flex items-center my-6 gap-x-2.5">

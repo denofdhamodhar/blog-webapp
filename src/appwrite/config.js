@@ -35,7 +35,6 @@ export class services {
           authour: authour,
         },
       });
-      console.log("Post Created Successfully:", result);
       return result;
     } catch (error) {
       console.log("Appwrite :: createPost Error ::", error.message);
@@ -49,7 +48,6 @@ export class services {
         collectionId: conf.COLLECTION_ID,
         documentId: slug,
       });
-      console.log("Post Fetched Successfully:", result);
       return result;
     } catch (error) {
       console.log("Appwrite :: getPost Error ::", error.message);
@@ -63,7 +61,6 @@ export class services {
         collectionId: conf.COLLECTION_ID,
         queries: queries,
       });
-      console.log("Posts Fetched Successfully:", result);
       return result;
     } catch (error) {
       console.log("Appwrite :: getAllPosts Error ::", error.message);
@@ -83,7 +80,6 @@ export class services {
           status: status,
         },
       });
-      console.log("Updated Post Successfully:", result);
       return result;
     } catch (error) {
       console.log("Appwrite :: updatePost Error ::", error.message);
@@ -97,7 +93,6 @@ export class services {
         collectionId: conf.COLLECTION_ID,
         documentId: slug,
       });
-      console.log("Deleted Post Successfully:", result);
       return result;
     } catch (error) {
       console.log("Appwrite :: deletePost Error ::", error.message);
@@ -114,7 +109,6 @@ export class services {
         fileId: ID.unique(),
         file: file,
       });
-      console.log("Uploaded Image Successfully:", result);
       return result;
     } catch (error) {
       console.log("Appwrite :: uploadFile Error ::", error.message);
@@ -127,7 +121,6 @@ export class services {
         bucketId: conf.BUCKET_ID,
         fileId: fileId,
       });
-      console.log(result);
       return result;
     } catch (error) {
       console.log("Appwrite :: getFile Error ::", error.message);
@@ -140,7 +133,6 @@ export class services {
         bucketId: conf.BUCKET_ID,
         fileId: fileId,
       });
-      console.log(result);
       return result;
     } catch (error) {
       console.log("Appwrite :: deleteFile Error ::", error.message);

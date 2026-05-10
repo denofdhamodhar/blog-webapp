@@ -24,7 +24,6 @@ export class authServices {
           email: email,
           password: password,
         });
-        console.log(result);
         return result;
       }
     } catch (error) {
@@ -38,7 +37,6 @@ export class authServices {
         email: email,
         password: password,
       });
-      console.log(result);
       return result;
     } catch (error) {
       console.log("Appwrite :: Login Account Error ::", error.message);
@@ -48,7 +46,6 @@ export class authServices {
   async getCurrentUser() {
     try {
       const result = await this.account.get();
-      console.log(result);
       return result;
     } catch (error) {
       console.log("Appwrite :: Get User Error ::", error.message);

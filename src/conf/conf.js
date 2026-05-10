@@ -7,6 +7,6 @@ const conf = {
   BUCKET_ID: String(import.meta.env.VITE_APPWRITE_BUCKET),
 };
 
-export const TinyMCE_KEY = String(import.meta.env.TINY_MCE_KEY);
+export const TinyMCE_KEY = import.meta.env.VITE_TINY_MCE_KEY
 
 export default conf;
