@@ -12,7 +12,15 @@ export class services {
     this.storage = new Storage(this.client);
   }
 
-  async createPost({ title, slug, content, status, featuredImage, userId, authour }) {
+  async createPost({
+    title,
+    slug,
+    content,
+    status,
+    featuredImage,
+    userId,
+    authour,
+  }) {
     try {
       const result = await this.databases.createDocument({
         databaseId: conf.DATABASE_ID,
@@ -24,10 +32,11 @@ export class services {
           featuredImage: featuredImage,
           status: status,
           userId: userId,
-          authour : authour
+          authour: authour,
         },
       });
       console.log("Post Created Successfully:", result);
+      return result;
     } catch (error) {
       console.log("Appwrite :: createPost Error ::", error.message);
     }
@@ -75,6 +84,7 @@ export class services {
         },
       });
       console.log("Updated Post Successfully:", result);
+      return result;
     } catch (error) {
       console.log("Appwrite :: updatePost Error ::", error.message);
     }
@@ -88,8 +98,10 @@ export class services {
         documentId: slug,
       });
       console.log("Deleted Post Successfully:", result);
+      return result;
     } catch (error) {
       console.log("Appwrite :: deletePost Error ::", error.message);
+      throw error;
     }
   }
 
@@ -109,14 +121,14 @@ export class services {
     }
   }
 
-  async getFile(fileId) {
+  getFile(fileId) {
     try {
       const result = this.storage.getFileView({
         bucketId: conf.BUCKET_ID,
         fileId: fileId,
       });
       console.log(result);
-      return result.href
+      return result;
     } catch (error) {
       console.log("Appwrite :: getFile Error ::", error.message);
     }
@@ -129,8 +141,10 @@ export class services {
         fileId: fileId,
       });
       console.log(result);
+      return result;
     } catch (error) {
       console.log("Appwrite :: deleteFile Error ::", error.message);
+      throw error;
     }
   }
 }

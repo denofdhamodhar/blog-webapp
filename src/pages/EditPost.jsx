@@ -5,15 +5,13 @@ import Services from "../appwrite/config"
 
 function EditPost() {
   const [Post, SetPost] = useState(null)
-  const slug = useParams()
+  const {slug} = useParams()
   const navigate = useNavigate()
   useEffect(() => {
     async function fetchPost() {
       await Services.getPost(slug).then((result) => {
         if (result) {
           SetPost(result)
-        } else {
-          navigate("/")
         }
       })
     }

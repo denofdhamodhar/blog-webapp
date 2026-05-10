@@ -7,19 +7,18 @@ import parse from "html-react-parser";
 import { useSelector } from "react-redux";
 
 function Post() {
-  const [post, SetPost] = useState(null);
-  const slug = useParams();
+  const [post, SetPost] = useState([]);
+  // note: forgot {}  = useParams()
+  const { slug } = useParams();
   const navigate = useNavigate();
   const userData = useSelector((state) => state.auth.userData);
-  const isAuthour = post && userData ? post.$id === userData.$id : false;
+  const isAuthour = post && userData ? post.userId == userData.$id : false;
 
   useEffect(() => {
     async function fetchPost() {
       await Services.getPost(slug).then((result) => {
         if (result) {
           SetPost(result);
-        } else {
-          navigate("/");
         }
       });
     }
@@ -27,17 +26,27 @@ function Post() {
   }, [slug, navigate]);
 
   async function deletePost() {
-    await Services.deleteFile(post.featuredImage).then(async (status) => {
-      if (status) {
-        await Services.deletePost(post.$id);
-        navigate("/");
+    try {
+      if (post.featuredImage) {
+        try {
+          await Services.deleteFile(post.featuredImage);
+        } catch (error) {
+          console.warn(
+            "Cover image delete failed, continuing post deletion:",
+            error,
+          );
+        }
       }
-    });
+      await Services.deletePost(post.$id);
+      navigate("/");
+    } catch (error) {
+      console.error("Delete post failed:", error);
+    }
   }
 
   return (
     <Container>
-      <div className="w-full h-auto px-4 my-4 sm:my-8 max-w-lg lg:max-w-full mx-auto lg:px-6">
+      <div className="w-full h-auto px-4 my-4 sm:my-8 max-w-lg lg:max-w-full mx-auto lg:px-6 overflow-x-hidden">
         <div className="mx-auto w-full">
           <img
             className="h-96 lg:h-125 object-center object-cover w-full"
@@ -50,9 +59,9 @@ function Post() {
             {post.title}
           </h1>
           <p className="font-subparagraph leading-1 text-left px-2.5 font-medium text-sm text-slate-500">
-            Written by<span className="lowercase "> {post.author}</span>
+            Written by<span className="lowercase "> {post.authour}</span>
           </p>
-          <div className="px-2.5 mt-8 text-justify font-paragraph leading-relaxed lg:text-base">
+          <div className="px-2.5 mt-8 font-paragraph leading-8 text-left md:text-justify hyphens-auto">
             <p>{post.content ? parse(post.content) : ""}</p>
           </div>
           {isAuthour && (

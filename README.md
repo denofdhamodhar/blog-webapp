@@ -1,3 +1,2 @@
-# Blog ( web app ) 
-### Authenticated Route Completed
+# Blog App Completed
 

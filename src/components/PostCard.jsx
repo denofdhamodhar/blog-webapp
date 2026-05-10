@@ -6,17 +6,19 @@ function PostCard({ $id, title, featuredImage }) {
   featuredImage : to display cover image
   title : display below image */
   return (
-    <Link to={`/post/${$id}`}>
-      <div className="w-full max-w-75 shadow-lg backdrop-blur-2xl shadow-slate-400/20 h-68 overflow-hidden">
-        <img src={Services.getFile(featuredImage)} alt={title} />
+    <div>
+       <Link to={`/post/${$id}`}>
+      <div className="max-w-75 shadow-lg backdrop-blur-2xl shadow-slate-400/50 h-72 overflow-hidden">
+        <img src={Services.getFile(featuredImage)} alt={title} className="w-full h-60 object-cover" />
         {/* Note: useful tip if title present do otherwise keep this */}
         <h1
-          className="font-semibold px-2 h-14 flex justify-center items-center leading-5 text-center text-wrap font-subheadings"
+          className="font-semibold p-2 flex justify-center items-center text-center text-wrap font-subheadings"
         >
           {title ? title.slice(0, 40) + "..." : "Untitled Post"}
         </h1>
       </div>
     </Link>
+   </div>
   );
 }
 
