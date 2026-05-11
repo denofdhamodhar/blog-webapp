@@ -126,7 +126,7 @@ function PostForm({ post }) {
             label="Upload cover photo :"
             type="file"
             className="file:rounded-full file:bg-amber-500 file:text-white file:px-2 file:py-1"
-            accept={"image/png, image/jpeg", "image/jpg"}
+            accept="image/png, image/jpeg, image/jpg"
             {...register("image", {required : true})}
             />
             {

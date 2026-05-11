@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import Container from "../Layout/Container";
 import Services from "../appwrite/config";
 import PostCard from "../components/PostCard";
+import { useSelector } from "react-redux";
 
 function AllPosts() {
   const [posts, setPosts] = useState([]);
+  const authStatus = useSelector((state) => state.auth.status);
 
   useEffect(() => {
     async function getAllPosts() {
@@ -20,18 +22,28 @@ function AllPosts() {
   if (posts.length === 0) {
     return (
       <Container>
-        <div className="w-full min-h-screen">
-          <h1 className="p-8 font-paragraph bg-slate-900 text-white mx-8 mt-8 rounded-md font-medium">
-            No Posts
-          </h1>
-        </div>
+        {!authStatus && (
+          <div className="w-full min-h-screen">
+            <h1 className="p-8 font-paragraph  bg-slate-900 text-white mx-8 mt-8 rounded-md font-medium">
+              Log in to read the posts
+            </h1>
+          </div>
+        )}
+        {authStatus && (
+          <div className="w-full min-h-screen">
+            <h1 className="p-8 font-paragraph  bg-slate-900 text-white mx-8 mt-8 rounded-md font-medium">
+              No posts yet. Create your post.
+            </h1>
+          </div>
+        )}
       </Container>
     );
   }
 
+
   return (
     <Container>
-      <div className="px-4 sm:my-20 my-10 max-w-lg lg:max-w-full mx-auto lg:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-y-10 sm:gap-x-10 lg:gap-x-2">
+      <div className="px-4 sm:my-20 my-10 max-w-lg lg:max-w-full mx-auto lg:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-y-10 sm:gap-x-10 lg:gap-x-2 xl:gap-y-14">
         {posts.map((post) => (
           <PostCard key={post.$id} {...post} />
         ))}
