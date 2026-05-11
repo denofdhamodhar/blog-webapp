@@ -37,7 +37,7 @@ function Header() {
       name: "Add Post",
       slug: "/add-post",
       active: authStatus,
-    }
+    },
   ];
   return (
     <header className="w-full bg-amber-400 sticky top-0 z-30 overflow-x-hidden">
@@ -139,7 +139,9 @@ function Header() {
                     </NavLink>
                   ) : null,
                 )}
-                {authStatus && <LogoutBtn />}
+                {authStatus && (
+                  <div onClick={() => setOpen(false)}><LogoutBtn /></div>
+                )}
               </ul>
             </div>
           </div>

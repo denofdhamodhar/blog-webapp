@@ -7,7 +7,7 @@ function LogoutBtn() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     async function logoutfn() {
-        await AuthServices.logout();
+      await AuthServices.logout();
         dispatch(logout());
         navigate("/")
     }
