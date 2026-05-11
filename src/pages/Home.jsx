@@ -3,6 +3,8 @@ import Container from "../Layout/Container";
 import Services from "../appwrite/config";
 import PostCard from "../components/PostCard";
 import { useSelector } from "react-redux";
+import Button from "../components/Button";
+import { Link } from "react-router-dom";
 
 function Home() {
   const [posts, setPosts] = useState([]);
@@ -24,15 +26,29 @@ function Home() {
       <Container>
         {!authStatus && (
           <div className="w-full min-h-screen">
-            <h1 className="p-8 font-paragraph  bg-slate-900 text-white mx-8 mt-8 rounded-md font-medium">
-              Log in to read the posts
-            </h1>
+            <div className="p-8 font-paragraph  bg-slate-900 text-white mx-8 mt-8 rounded-md font-medium">
+              <h1 className="mb-2 lg:text-md">Log in to read the posts</h1>
+              <div className="flex gap-x-2 mt-4">
+                <Link to="/signup">
+                  <Button
+                    label="Signup"
+                    bgColor="bg-amber-400"
+                  />
+                </Link>
+                <Link to="/login">
+                  <Button
+                    label="Login"
+                    bgColor="bg-red-600"
+                  />
+                </Link>
+              </div>
+            </div>
           </div>
         )}
         {authStatus && (
           <div className="w-full min-h-screen">
             <h1 className="p-8 font-paragraph  bg-slate-900 text-white mx-8 mt-8 rounded-md font-medium">
-              No posts yet. Create your post.
+              No posts yet. Create post.
             </h1>
           </div>
         )}

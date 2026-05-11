@@ -20,7 +20,7 @@ function Signup() {
   }
   return (
     <Container>
-      <div className="w-full shadow-lg backdrop-blur-2xl shadow-slate-400/50 max-w-xs md:max-w-sm px-4 lg:px-6 py-6 my-10 lg:my-16 border-2 rounded-xl border-amber-400 mx-auto">
+      <div className="w-full shadow-lg backdrop-blur-2xl shadow-slate-400/50 max-w-70 xs:max-w-xs md:max-w-sm px-4 lg:px-6 py-6 my-10 lg:my-16 border-2 rounded-xl border-amber-400 mx-auto">
         <h1 className="font-subheadings text-center text-xl font-bold">
           INK{" "}
           <span className="text-white bg-red-500 px-2 rounded-md">WELL</span>{" "}

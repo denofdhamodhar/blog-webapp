@@ -20,7 +20,7 @@ function Login() {
   }
   return (
     <Container>
-      <div className="w-full max-w-xs md:max-w-sm shadow-lg backdrop-blur-2xl shadow-slate-400/50 lg:px-10 px-4 py-10 my-10 lg:my-20 border-2 rounded-xl border-amber-400 mx-auto">
+      <div className="w-full max-w-70 xs:max-w-xs  md:max-w-sm shadow-lg backdrop-blur-2xl shadow-slate-400/50 lg:px-10 px-4 py-10 my-10 lg:my-20 border-2 rounded-xl border-amber-400 mx-auto">
         <h1 className="font-subheadings text-center text-xl font-bold">INK <span className="text-white bg-red-500 px-2 rounded-md">WELL</span> BLOGS</h1>
         <h1 className="text-sm font-bold font-subheadings text-center mt-1 pb-6 lg:pb-8 font-paragraph">
           Login your account
